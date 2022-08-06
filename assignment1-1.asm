@@ -30,6 +30,11 @@
 			# print the result on SPIM Console
 				# your code ... 
 			
+			la $t7, str1  #get string
+			addi $v0, $0, 4  #prepares system call to print string
+			add $a0, $0, $t7  #load string into syscall
+			syscall
+
 			addi $v0, $0, 1  #prepares system call to print integer
 			add $a0, $0, $t4  #load count into syscall
 			syscall
