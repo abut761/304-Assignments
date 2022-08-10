@@ -24,7 +24,7 @@
 		add $a0, $0, $t0  #load first prompt into syscall
 		syscall
 
-		addi $v0, $0, 8  #prepares system call to read string
+		addi $v0, $0, 5  #prepares system call to read string
 		syscall
 
 		#use temp 0-2 to store the most recent 3 characters. then compare to see if it matches "the"
