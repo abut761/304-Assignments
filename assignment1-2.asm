@@ -6,7 +6,7 @@
 	prompt2:	.asciiz		"\n ... number of word 'the' in the string is: "
 	# reserve a buffer to store up to 200 characters for the input string 
 				# (plus one for 0 at the end of the string)
-	str_buf: 	.space		201  
+	str_buf: 	.space		200  
   
  
 	# other things here if needed ...
@@ -24,7 +24,8 @@
 		add $a0, $0, $t0  #load first prompt into syscall
 		syscall
 
-		addi $v0, $0, 5  #prepares system call to read string
+		addi $v0, $0, 8  #prepares system call to read string
+		la $a0, str_buf  #reserves space for input string in argument section
 		syscall
 
 		#use temp 0-2 to store the most recent 3 characters. then compare to see if it matches "the"
